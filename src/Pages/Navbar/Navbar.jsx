@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
+import avatarImg from "../../assets/avatar.jpg";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,16 +78,13 @@ const Navbar = () => {
           <ul className="ml-auto hidden items-center space-x-8 lg:flex">
             {user?.email ? (
               <>
-                <div className="relative flex-shrink-0 ">
-                  <img
-                    src={user?.photoURL ? user.photoURL : ""}
-                    referrerPolicy="no-referrer"
-                    alt=""
-                    aria-label={user?.displayName}
-                    title={user?.displayName}
-                    className=" h-10 w-10 rounded-md border border-gray-700 bg-gray-500"
-                  />
-                </div>
+                <img
+                  alt=""
+                  aria-label={user?.displayName}
+                  title={user?.displayName}
+                  className="h-8 w-8 rounded-md ring-2 ring-violet-400 ring-offset-4 ring-offset-gray-800 dark:bg-gray-500"
+                  src={user?.photoURL ? user.photoURL : avatarImg}
+                />
                 <li>
                   <Link
                     onClick={handleLogut}
