@@ -21,7 +21,7 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
 
-        // Update user name
+        // Update user name and user profile image
         updateUserProfile(name, profilePhoto)
           .then(() => {
             toast.success("Name Updated");
@@ -36,7 +36,7 @@ const SignUp = () => {
       });
   };
 
-  // Google sign in
+  // Sign in with Google
   const handlGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -50,7 +50,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="my-5 mx-auto w-80 max-w-md rounded-md bg-gray-900 p-4 text-gray-100 shadow sm:p-8 md:w-full">
+    <div className="my-5 mx-auto w-80 max-w-md rounded-md bg-gray-700 p-4 text-gray-100 shadow sm:p-8 md:w-full">
       <h2 className="mb-3 text-center text-3xl font-semibold">Signup</h2>
       <p className="text-center text-sm text-gray-400">
         Already have an account?{" "}
@@ -139,7 +139,7 @@ const SignUp = () => {
               type="email"
               name="email"
               id="email"
-              placeholder="avengers@email.com"
+              placeholder="avengers@marvel.com"
               className="w-full rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus:border-violet-400"
               data-temp-mail-org="2"
               autoComplete="off"

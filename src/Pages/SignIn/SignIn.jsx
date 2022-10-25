@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/UserContext";
 const SignIn = () => {
   const { logIn, signInWithGoogle } = useContext(AuthContext);
 
-  // Login with email ans password
+  // Sign In
   const handleLogIn = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -24,7 +24,7 @@ const SignIn = () => {
       });
   };
 
-  // Google sign in
+  // Sign in with Google
   const handlGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -38,7 +38,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="my-5 mx-auto w-80 max-w-md rounded-md bg-gray-900 p-4 text-gray-100 shadow sm:p-8 md:w-full">
+    <div className="my-5 mx-auto w-80 max-w-md rounded-md bg-gray-700 p-4 text-gray-100 shadow sm:p-8 md:w-full">
       <h2 className="mb-3 text-center text-3xl font-semibold">Signin</h2>
       <p className="text-center text-sm text-gray-400">
         Don't have account?{" "}

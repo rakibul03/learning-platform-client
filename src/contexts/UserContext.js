@@ -21,7 +21,7 @@ const UserContext = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
 
-  //    1. Create user
+  //   Create user new user
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -34,29 +34,29 @@ const UserContext = ({ children }) => {
     });
   };
 
-  //   3. Email verification
+  //   Email verification
   const verifyEmail = () => {
     return sendEmailVerification(auth.currentUser);
   };
 
-  //   4. Google sign in
+  //  Google sign in
   const signInWithGoogle = () => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  //  5. Logout
+  // Logout
   const logOut = () => {
     return signOut(auth);
   };
 
-  //   6. Log in
+  //  Log in
   const logIn = (email, password) => {
     setLoading(true);
 
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  //   7. Reset Password
+  //   Reset Password
   const resetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
   };

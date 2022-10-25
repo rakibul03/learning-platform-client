@@ -15,8 +15,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#5DA7DB]">
-      <div className="w-85 sticky mx-auto px-4 py-2 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+    <div className="sticky top-0 bg-gray-500 py-1 sm:shadow-lg">
+      <div className="mx-auto w-[96%] px-4 py-2 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
         <div className="relative grid grid-cols-2 items-center lg:grid-cols-3">
           <ul className="hidden items-center space-x-8 lg:flex">
             <li>
@@ -82,13 +82,13 @@ const Navbar = () => {
                   alt=""
                   aria-label={user?.displayName}
                   title={user?.displayName}
-                  className="h-8 w-8 rounded-md ring-2 ring-violet-400 ring-offset-4 ring-offset-gray-800 dark:bg-gray-500"
+                  className="h-8 w-8 rounded-md shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] ring-2 ring-violet-400 ring-offset-4 ring-offset-gray-800 dark:bg-gray-500"
                   src={user?.photoURL ? user.photoURL : avatarImg}
                 />
                 <li>
                   <Link
                     onClick={handleLogut}
-                    className="btn btn-color hover:btn-color  focus:shadow-outline inline-flex h-10 items-center justify-center rounded px-5 font-medium tracking-wide text-white shadow-md transition duration-200 focus:outline-none"
+                    className="btn btn-color hover:btn-color focus:shadow-outline  inline-flex h-10 items-center justify-center rounded px-5 font-medium tracking-wide text-white  shadow-lg transition duration-200 focus:outline-none"
                     aria-label="Logout"
                     title="Logout"
                   >
@@ -193,55 +193,79 @@ const Navbar = () => {
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/course-item"
                           aria-label="Our product"
                           title="Our product"
                           className="hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
                         >
-                          Product
-                        </a>
+                          Courses
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/faq"
                           aria-label="Our product"
                           title="Our product"
                           className="hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
                         >
-                          Features
-                        </a>
+                          FAQ
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/blog"
                           aria-label="Product pricing"
                           title="Product pricing"
                           className="hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
                         >
-                          Pricing
-                        </a>
-                      </li>
-                      <li>
-                        <Link
-                          to="/signin"
-                          aria-label="Sign in"
-                          title="Sign in"
-                          className="btn btn-color hover:btn-color bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-black shadow-md transition duration-200 focus:outline-none"
-                        >
-                          Sign in
+                          Blog
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to="/signup"
-                          className="btn btn-color hover:btn-color bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-black shadow-md transition duration-200 focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Sign up
-                        </Link>
-                      </li>
+                      {user?.email ? (
+                        <div className="flex items-center justify-center gap-6">
+                          <img
+                            alt=""
+                            aria-label={user?.displayName}
+                            title={user?.displayName}
+                            className="h-8 w-8 rounded-md ring-2 ring-violet-400 ring-offset-4 ring-offset-gray-800 dark:bg-gray-500"
+                            src={user?.photoURL ? user.photoURL : avatarImg}
+                          />
+                          <li>
+                            <Link
+                              onClick={handleLogut}
+                              className="btn btn-color hover:btn-color  focus:shadow-outline inline-flex h-10 items-center justify-center rounded px-5 font-medium tracking-wide text-white shadow-md transition duration-200 focus:outline-none"
+                              aria-label="Logout"
+                              title="Logout"
+                            >
+                              Logout
+                            </Link>
+                          </li>
+                        </div>
+                      ) : (
+                        <>
+                          <li>
+                            <Link
+                              to="/signin"
+                              aria-label="Sign in"
+                              title="Sign in"
+                              className="btn btn-color hover:btn-color bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-black shadow-md transition duration-200 focus:outline-none"
+                            >
+                              Sign in
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/signup"
+                              className="btn btn-color hover:btn-color bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-black shadow-md transition duration-200 focus:outline-none"
+                              aria-label="Sign up"
+                              title="Sign up"
+                            >
+                              Sign up
+                            </Link>
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </nav>
                 </div>
