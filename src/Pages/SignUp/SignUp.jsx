@@ -4,12 +4,14 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 
 const SignUp = () => {
-  const { createUser, updateName, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, updateUserProfile, signInWithGoogle } =
+    useContext(AuthContext);
 
   // Sign up using pass and mail
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
+    const profilePhoto = event.target.profilePhoto.value;
     const password = event.target.password.value;
     const email = event.target.email.value;
 
@@ -20,7 +22,7 @@ const SignUp = () => {
         console.log(user);
 
         // Update user name
-        updateName(name)
+        updateUserProfile(name, profilePhoto)
           .then(() => {
             toast.success("Name Updated");
           })
@@ -39,6 +41,7 @@ const SignUp = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
+        console.log(user);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -115,13 +118,13 @@ const SignUp = () => {
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="profile" className="block text-sm">
+            <label htmlFor="profilePhoto" className="block text-sm">
               Photo Url
             </label>
             <input
               type="url"
-              name="profile"
-              id="profile"
+              name="profilePhoto"
+              id="profilePhoto"
               placeholder="Profile Image link"
               className="w-full rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus:border-violet-400"
               data-temp-mail-org="2"

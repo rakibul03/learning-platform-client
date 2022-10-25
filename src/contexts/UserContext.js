@@ -26,9 +26,12 @@ const UserContext = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  //   2. Update user name
-  const updateName = (name) => {
-    return updateProfile(auth.currentUser, { displayName: name });
+  //  Update user name and profile photo
+  const updateUserProfile = (name, profilePhoto) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: profilePhoto,
+    });
   };
 
   //   3. Email verification
@@ -73,7 +76,7 @@ const UserContext = ({ children }) => {
     user,
     loading,
     createUser,
-    updateName,
+    updateUserProfile,
     verifyEmail,
     signInWithGoogle,
     logIn,

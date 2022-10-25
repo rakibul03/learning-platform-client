@@ -77,6 +77,16 @@ const Navbar = () => {
           <ul className="ml-auto hidden items-center space-x-8 lg:flex">
             {user?.email ? (
               <>
+                <div className="relative flex-shrink-0 ">
+                  <img
+                    src={user?.photoURL ? user.photoURL : ""}
+                    referrerPolicy="no-referrer"
+                    alt=""
+                    aria-label={user?.displayName}
+                    title={user?.displayName}
+                    className=" h-10 w-10 rounded-md border border-gray-700 bg-gray-500"
+                  />
+                </div>
                 <li>
                   <Link
                     onClick={handleLogut}
