@@ -53,7 +53,7 @@ const CourseContentDetails = () => {
         <div className="mx-auto lg:max-w-2xl">
           <div className=" w-full ">
             <img
-              className="h-56 w-full rounded border-2 border-sky-500 object-fill shadow-md sm:h-64 md:h-80 lg:h-96"
+              className="h-56 w-full rounded border-2 object-contain shadow-md sm:h-64 md:h-80 lg:h-96"
               src={image_url}
               alt=""
             />

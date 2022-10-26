@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 
 const SignUp = () => {
-  const navigate = useNavigate();
   const { createUser, updateUserProfile, signInWithGoogle, signInWithGithu } =
     useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   // Sign up using pass and mail
   const handleSubmit = (event) => {
@@ -20,10 +22,7 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success(
-          `Registration Completed Please SignIn ${user.displayName}`
-        );
-        navigate("/signin");
+        toast.success("Registration Completed Please Signin");
 
         // Update user name and user profile image
         updateUserProfile(name, profilePhoto)
@@ -32,6 +31,7 @@ const SignUp = () => {
             toast.error(error.message);
           });
         event.target.reset();
+        navigate("/signin");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -43,6 +43,7 @@ const SignUp = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
+        navigate("/signin");
         toast.success(`SignUp Successful ${user.displayName}`);
       })
       .catch((error) => {
@@ -131,6 +132,7 @@ const SignUp = () => {
               className="w-full rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus:border-violet-400"
               data-temp-mail-org="2"
               autoComplete="off"
+              required
             />
           </div>
           <div className="space-y-2">
@@ -158,7 +160,7 @@ const SignUp = () => {
               placeholder="avengers@marvel.com"
               className="w-full rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus:border-violet-400"
               data-temp-mail-org="2"
-              autoComplete="off"
+              required
             />
           </div>
           <div className="space-y-2">
@@ -176,6 +178,7 @@ const SignUp = () => {
               id="password"
               placeholder="*****"
               className="w-full rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus:border-violet-400"
+              required
             />
           </div>
         </div>

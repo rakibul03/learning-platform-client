@@ -19,6 +19,7 @@ const SignIn = () => {
     logIn(email, password)
       .then((result) => {
         const user = result.user;
+        console.log(user);
         toast.success(`Signin Successful ${user.displayName}`);
         event.target.reset();
         navigate(from, { replace: true });
@@ -122,7 +123,7 @@ const SignIn = () => {
               placeholder="avengers@marvel.com"
               className="w-full rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus:border-violet-400"
               data-temp-mail-org="2"
-              autoComplete="off"
+              required
             />
           </div>
           <div className="space-y-2">
@@ -140,6 +141,7 @@ const SignIn = () => {
               id="password"
               placeholder="*****"
               className="w-full rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 focus:border-violet-400"
+              required
             />
           </div>
         </div>
