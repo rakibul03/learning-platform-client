@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 const CheckOut = () => {
   const checkoutItem = useLoaderData();
-  const { course_title, image_url, rating, author, price } = checkoutItem;
+  const { course_title, image_url, author, price } = checkoutItem;
 
   return (
     <div className="mx-auto mt-14 flex max-w-3xl flex-col space-y-4 rounded-md bg-gray-900 p-6 text-gray-100 sm:p-10">

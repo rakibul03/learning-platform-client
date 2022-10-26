@@ -76,7 +76,7 @@ const Navbar = () => {
             </span>
           </Link>
           <ul className="ml-auto hidden items-center space-x-8 lg:flex">
-            {user?.email ? (
+            {user?.uid ? (
               <>
                 <img
                   alt=""

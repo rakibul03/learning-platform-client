@@ -8,7 +8,7 @@ const PrivateRoutes = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="flex h-screen items-center items-center justify-center space-x-2">
+      <div className="flex h-screen items-center justify-center space-x-2">
         <div className="h-4 w-4 animate-pulse rounded-full bg-violet-400"></div>
         <div className="h-4 w-4 animate-pulse rounded-full bg-violet-400"></div>
         <div className="h-4 w-4 animate-pulse rounded-full bg-violet-400"></div>

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile, signInWithGoogle } =
+  const navigate = useNavigate();
+  const { createUser, updateUserProfile, signInWithGoogle, signInWithGithu } =
     useContext(AuthContext);
 
   // Sign up using pass and mail
@@ -19,7 +20,10 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success("Registration Successfull");
+        toast.success(
+          `Registration Completed Please SignIn ${user.displayName}`
+        );
+        navigate("/signin");
 
         // Update user name and user profile image
         updateUserProfile(name, profilePhoto)
@@ -35,7 +39,7 @@ const SignUp = () => {
   };
 
   // Sign in with Google
-  const handlGoogleSignIn = () => {
+  const handlGoogleSignUp = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
@@ -43,7 +47,20 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        toast.error(errorMessage);
+      });
+  };
+
+  // Github sign in
+  const handlGithubSignUp = () => {
+    signInWithGithu()
+      .then((result) => {
+        const user = result.user;
+        toast.success(`SignUp Successful ${user.displayName}`);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
       });
   };
 
@@ -61,7 +78,7 @@ const SignUp = () => {
       </p>
       <div className="my-6 space-y-4">
         <button
-          onClick={handlGoogleSignIn}
+          onClick={handlGoogleSignUp}
           aria-label="Login with Google"
           type="button"
           className="flex w-full items-center justify-center space-x-4 rounded-md border border-gray-400 p-4 focus:ring-2 focus:ring-violet-400 focus:ring-offset-1"
@@ -76,6 +93,7 @@ const SignUp = () => {
           <p>Signup with Google</p>
         </button>
         <button
+          onClick={handlGithubSignUp}
           aria-label="Login with GitHub"
           type="button"
           className="flex w-full items-center justify-center space-x-4 rounded-md border border-gray-400 p-4 focus:ring-2 focus:ring-violet-400 focus:ring-offset-1"

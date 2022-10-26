@@ -2,7 +2,7 @@ import React, { createRef } from "react";
 import ReactToPdf from "react-to-pdf";
 import { Link, useLoaderData } from "react-router-dom";
 
-const ref = React.createRef();
+const ref = createRef();
 
 const CourseContentDetails = () => {
   const options = {
@@ -18,7 +18,6 @@ const CourseContentDetails = () => {
     course_description,
     image_url,
     total_purchase,
-    rating,
     author,
   } = courseContent;
 

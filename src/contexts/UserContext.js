@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -16,6 +17,7 @@ export const AuthContext = createContext();
 
 const UserContext = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -37,6 +39,10 @@ const UserContext = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  // Github sign in
+  const signInWithGithu = () => {
+    return signInWithPopup(auth, githubProvider);
+  };
   // Logout
   const logOut = () => {
     return signOut(auth);
@@ -44,8 +50,6 @@ const UserContext = ({ children }) => {
 
   //  Log in
   const logIn = (email, password) => {
-    setLoading(true);
-
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -65,6 +69,7 @@ const UserContext = ({ children }) => {
     loading,
     createUser,
     updateUserProfile,
+    signInWithGithu,
     signInWithGoogle,
     logIn,
     logOut,

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 
 const SignIn = () => {
-  const { logIn, signInWithGoogle } = useContext(AuthContext);
+  const { logIn, signInWithGoogle, signInWithGithu } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -31,6 +31,20 @@ const SignIn = () => {
   // Sign in with Google
   const handlGoogleSignIn = () => {
     signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        toast.success(`Signin Successful ${user.displayName}`);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
+  // Github sign in
+  const handlGithubSignIn = () => {
+    signInWithGithu()
       .then((result) => {
         const user = result.user;
         toast.success(`Signin Successful ${user.displayName}`);
@@ -71,6 +85,7 @@ const SignIn = () => {
           <p>Login with Google</p>
         </button>
         <button
+          onClick={handlGithubSignIn}
           aria-label="Login with GitHub"
           type="button"
           className="flex w-full items-center justify-center space-x-4 rounded-md border border-gray-400 p-4 focus:ring-2 focus:ring-violet-400 focus:ring-offset-1"
