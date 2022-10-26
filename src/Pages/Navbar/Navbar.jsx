@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 import avatarImg from "../../assets/avatar.jpg";
@@ -16,47 +16,68 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 bg-gray-500 py-1 sm:shadow-lg">
+    <div className="sticky top-0 z-10 bg-gray-500 py-1 sm:shadow-lg">
       <div className="mx-auto w-[96%] px-4 py-2 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
         <div className="relative grid grid-cols-2 items-center lg:grid-cols-3">
           <ul className="hidden items-center space-x-8 lg:flex">
             <li>
-              <Link
+              <NavLink
+                to="/home"
+                aria-label="Our courses"
+                title="Our courses"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-medium text-[#0ea5e9]"
+                    : "font-medium text-gray-100"
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/course-item"
                 aria-label="Our courses"
                 title="Our courses"
-                className="hover:text-teal-accent-400 font-medium tracking-wide text-gray-100 transition-colors duration-200"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-medium text-[#0ea5e9]"
+                    : "font-medium text-gray-100"
+                }
               >
                 Courses
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/faq"
                 aria-label="faq"
                 title="faq"
-                className="hover:text-teal-accent-400 font-medium tracking-wide text-gray-100 transition-colors duration-200"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-medium text-[#0ea5e9]"
+                    : "font-medium text-gray-100"
+                }
               >
                 FAQ
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/blog"
                 aria-label="blog"
                 title="blog"
-                className="hover:text-teal-accent-400 font-medium tracking-wide text-gray-100 transition-colors duration-200"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-medium text-[#0ea5e9]"
+                    : "font-medium text-gray-100"
+                }
               >
                 Blog
-              </Link>
+              </NavLink>
             </li>
           </ul>
-          <Link
-            to="/"
-            aria-label="Company"
-            title="Company"
-            className="inline-flex items-center lg:mx-auto"
-          >
+          <Link to="/" className="inline-flex items-center lg:mx-auto">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 640 512"
@@ -82,8 +103,6 @@ const Navbar = () => {
                   <Link
                     onClick={handleLogut}
                     className="btn btn-color hover:btn-color focus:shadow-outline  inline-flex h-10 items-center justify-center rounded px-5 font-medium tracking-wide text-white  shadow-lg transition duration-200 focus:outline-none"
-                    aria-label="Logout"
-                    title="Logout"
                   >
                     Logout
                   </Link>
@@ -94,8 +113,6 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/signin"
-                    aria-label="Sign in"
-                    title="Sign in"
                     className="btn btn-color hover:btn-color  focus:shadow-outline inline-flex h-10 items-center justify-center rounded px-5 font-medium tracking-wide text-white shadow-md transition duration-200 focus:outline-none"
                   >
                     Sign in
@@ -105,14 +122,14 @@ const Navbar = () => {
                   <Link
                     to="/signup"
                     className="btn btn-color hover:btn-color  focus:shadow-outline inline-flex h-10 items-center justify-center rounded px-5 font-medium tracking-wide text-white shadow-md transition duration-200 focus:outline-none"
-                    aria-label="Sign up"
-                    title="Sign up"
                   >
                     Sign up
                   </Link>
                 </li>
               </>
             )}
+
+            {/* Toogle dark mode */}
             <li>
               <label
                 htmlFor="Toggle1"
@@ -139,38 +156,61 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="ml-auto lg:hidden">
-            <button
-              aria-label="Open Menu"
-              title="Open Menu"
-              className="focus:shadow-outline -mr-1 rounded p-2 transition duration-200 focus:outline-none"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-                />
-                <path
-                  fill="currentColor"
-                  d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-                />
-                <path
-                  fill="currentColor"
-                  d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-                />
-              </svg>
-            </button>
+            <ul className="flex items-center">
+              {/* Toogle dark mode */}
+              <li className="pr-4">
+                <label
+                  htmlFor="Toggle1"
+                  className="inline-flex cursor-pointer items-center space-x-[4px] text-gray-100"
+                >
+                  <p className="mb-[4px]">
+                    {isDark ? (
+                      <span className="text-sm">Dark</span>
+                    ) : (
+                      <span className="text-sm">Light</span>
+                    )}
+                  </p>
+                  <span className="relative">
+                    <input
+                      onClick={() => setIsDark(!isDark)}
+                      id="Toggle1"
+                      type="checkbox"
+                      className="peer hidden"
+                    />
+                    <div className="h-6 w-10 rounded-full bg-gray-400 shadow-inner peer-checked:bg-violet-400"></div>
+                    <div className="absolute inset-y-0 left-0 m-1 h-4 w-4 rounded-full bg-gray-800 shadow peer-checked:right-0 peer-checked:left-auto"></div>
+                  </span>
+                </label>
+              </li>
+              <li>
+                <button
+                  className="focus:shadow-outline -mr-1 rounded p-2 transition duration-200 focus:outline-none"
+                  onClick={() => setIsMenuOpen(true)}
+                >
+                  <svg className="w-5 text-gray-900" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                    />
+                    <path
+                      fill="currentColor"
+                      d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                    />
+                    <path
+                      fill="currentColor"
+                      d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full">
                 <div className="rounded border bg-white p-5 shadow-sm">
                   <div className="mb-4 flex items-center justify-between">
                     <div>
-                      <a
-                        href="/"
-                        aria-label="Company"
-                        title="Company"
-                        className="inline-flex items-center"
-                      >
+                      <a href="/" className="inline-flex items-center">
                         <svg
                           className="text-deep-purple-accent-400 w-8"
                           viewBox="0 0 24 24"
@@ -193,8 +233,6 @@ const Navbar = () => {
                     </div>
                     <div>
                       <button
-                        aria-label="Close Menu"
-                        title="Close Menu"
                         className="focus:shadow-outline -mt-2 -mr-2 rounded p-2 transition duration-200 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none"
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -210,34 +248,52 @@ const Navbar = () => {
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <Link
+                        <NavLink
                           to="/course-item"
-                          aria-label="Our product"
-                          title="Our product"
-                          className="hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "font-medium text-[#0ea5e9]"
+                              : "hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
+                          }
+                        >
+                          Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/home"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "font-medium text-[#0ea5e9]"
+                              : "hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
+                          }
                         >
                           Courses
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/faq"
-                          aria-label="Our product"
-                          title="Our product"
-                          className="hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "font-medium text-[#0ea5e9]"
+                              : "hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
+                          }
                         >
                           FAQ
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/blog"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          className="hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "font-medium text-[#0ea5e9]"
+                              : "hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
+                          }
                         >
                           Blog
-                        </Link>
+                        </NavLink>
                       </li>
                       {user?.email ? (
                         <div className="flex items-center justify-center gap-6">
@@ -252,8 +308,6 @@ const Navbar = () => {
                             <Link
                               onClick={handleLogut}
                               className="btn btn-color hover:btn-color  focus:shadow-outline inline-flex h-10 items-center justify-center rounded px-5 font-medium tracking-wide text-white shadow-md transition duration-200 focus:outline-none"
-                              aria-label="Logout"
-                              title="Logout"
                             >
                               Logout
                             </Link>
@@ -264,8 +318,6 @@ const Navbar = () => {
                           <li>
                             <Link
                               to="/signin"
-                              aria-label="Sign in"
-                              title="Sign in"
                               className="btn btn-color hover:btn-color bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-black shadow-md transition duration-200 focus:outline-none"
                             >
                               Sign in
@@ -275,8 +327,6 @@ const Navbar = () => {
                             <Link
                               to="/signup"
                               className="btn btn-color hover:btn-color bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-black shadow-md transition duration-200 focus:outline-none"
-                              aria-label="Sign up"
-                              title="Sign up"
                             >
                               Sign up
                             </Link>
