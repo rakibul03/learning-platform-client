@@ -5,13 +5,14 @@ import { AuthContext } from "../../contexts/UserContext";
 import avatarImg from "../../assets/avatar.jpg";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogut = () => {
     logOut()
       .then(toast.warning("Log Out"))
-      .catch((error) => console.log(error));
+      .catch((error) => toast(error));
   };
 
   return (
@@ -57,21 +58,13 @@ const Navbar = () => {
             className="inline-flex items-center lg:mx-auto"
           >
             <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 512"
               className="text-teal-accent-400 w-8"
-              viewBox="0 0 24 24"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeMiterlimit="10"
-              stroke="currentColor"
-              fill="none"
             >
-              <rect x="3" y="1" width="7" height="12" />
-              <rect x="3" y="17" width="7" height="6" />
-              <rect x="14" y="1" width="7" height="6" />
-              <rect x="14" y="11" width="7" height="12" />
+              <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
             </svg>
-            <span className="ml-2 text-xl font-bold uppercase tracking-wide text-gray-100">
+            <span className="ml-2 text-sm font-bold uppercase tracking-wide text-gray-100 md:text-xl">
               Edu Online
             </span>
           </Link>
@@ -120,6 +113,30 @@ const Navbar = () => {
                 </li>
               </>
             )}
+            <li>
+              <label
+                htmlFor="Toggle1"
+                className="inline-flex cursor-pointer items-center space-x-4 text-gray-100"
+              >
+                <span className="relative">
+                  <input
+                    onClick={() => setIsDark(!isDark)}
+                    id="Toggle1"
+                    type="checkbox"
+                    className="peer hidden"
+                  />
+                  <div className="h-6 w-10 rounded-full bg-gray-400 shadow-inner peer-checked:bg-violet-400"></div>
+                  <div className="absolute inset-y-0 left-0 m-1 h-4 w-4 rounded-full bg-gray-800 shadow peer-checked:right-0 peer-checked:left-auto"></div>
+                </span>
+                <p>
+                  {isDark ? (
+                    <span className="text-sm">Dark</span>
+                  ) : (
+                    <span className="text-sm">Light</span>
+                  )}
+                </p>
+              </label>
+            </li>
           </ul>
           <div className="ml-auto lg:hidden">
             <button

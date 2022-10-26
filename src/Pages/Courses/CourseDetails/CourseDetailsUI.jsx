@@ -4,14 +4,13 @@ import { FaArrowRight } from "react-icons/fa";
 
 const CourseDetailsUI = ({ course }) => {
   const { _id, course_title, image_url, course_description } = course;
-  // console.log(course);
   return (
     <div className="  sm:mx-auto sm:max-w-sm lg:max-w-full  ">
       <div className="overflow-hidden rounded bg-white  shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
         <div className="m-2 shadow-[0px_0px_6px_2px_rgba(0,0,0,0.3)]">
           <img
             src={image_url}
-            className=" h-40 w-60 object-cover p-2 "
+            className=" h-40 w-60 object-contain p-2 "
             alt=""
           />
         </div>
