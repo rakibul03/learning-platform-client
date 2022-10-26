@@ -15,12 +15,12 @@ const SignIn = () => {
     // Sign in with email and password
     logIn(email, password)
       .then((result) => {
-        console.log(result.user);
-        toast.success("Log In Successful");
+        const user = result.user;
+        toast.success(`Signin Successful ${user.displayName}`);
         event.target.reset();
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -29,11 +29,11 @@ const SignIn = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        toast.success(`Signin Successful ${user.displayName}`);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        toast.error(errorMessage);
       });
   };
 

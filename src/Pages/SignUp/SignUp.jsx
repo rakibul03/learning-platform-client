@@ -19,20 +19,18 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        toast.success("Registration Successfull");
 
         // Update user name and user profile image
         updateUserProfile(name, profilePhoto)
-          .then(() => {
-            toast.success("Name Updated");
-          })
+          .then()
           .catch((error) => {
             toast.error(error.message);
           });
         event.target.reset();
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -41,7 +39,7 @@ const SignUp = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        toast.success(`SignUp Successful ${user.displayName}`);
       })
       .catch((error) => {
         const errorMessage = error.message;

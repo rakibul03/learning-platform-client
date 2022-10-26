@@ -1,126 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import CourseDetailsUI from "./CourseDetailsUI";
 
 const CourseDetails = () => {
+  const allCourse = useLoaderData();
+
   return (
-    <div className="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20 ">
-      <div className="grid gap-8 sm:mx-auto sm:max-w-sm lg:max-w-full lg:grid-cols-3 ">
-        <div className="overflow-hidden rounded bg-white shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
-          <img
-            src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-            className="h-44 w-72 object-cover p-2 shadow-sm"
-            alt=""
-          />
-          <div className="grid border border-t-0 p-5">
-            <p className="hover:text-deep-purple-accent-700 mb-3 inline-block text-2xl font-bold leading-5 transition-colors duration-200">
-              Visit the East
-            </p>
-            <Link
-              to="/"
-              aria-label=""
-              className="text-deep-purple-accent-400 hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
-            >
-              Learn more
-            </Link>
-          </div>
-        </div>
-        <div className="overflow-hidden rounded bg-white shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
-          <img
-            src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-            className="h-44 w-72 object-cover p-2 shadow-sm"
-            alt=""
-          />
-          <div className="grid border border-t-0 p-5">
-            <p className="hover:text-deep-purple-accent-700 mb-3 inline-block text-2xl font-bold leading-5 transition-colors duration-200">
-              Visit the East
-            </p>
-            <Link
-              to="/"
-              aria-label=""
-              className="text-deep-purple-accent-400 hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
-            >
-              Learn more
-            </Link>
-          </div>
-        </div>
-        <div className="overflow-hidden rounded bg-white shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
-          <img
-            src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-            className="h-44 w-72 object-cover p-2 shadow-sm"
-            alt=""
-          />
-          <div className="grid border border-t-0 p-5">
-            <p className="hover:text-deep-purple-accent-700 mb-3 inline-block text-2xl font-bold leading-5 transition-colors duration-200">
-              Visit the East
-            </p>
-            <Link
-              to="/"
-              aria-label=""
-              className="text-deep-purple-accent-400 hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
-            >
-              Learn more
-            </Link>
-          </div>
-        </div>
-        <div className="overflow-hidden rounded bg-white shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
-          <img
-            src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-            className="h-44 w-72 object-cover p-2 shadow-sm"
-            alt=""
-          />
-          <div className="grid border border-t-0 p-5">
-            <p className="hover:text-deep-purple-accent-700 mb-3 inline-block text-2xl font-bold leading-5 transition-colors duration-200">
-              Visit the East
-            </p>
-            <Link
-              to="/"
-              aria-label=""
-              className="text-deep-purple-accent-400 hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
-            >
-              Learn more
-            </Link>
-          </div>
-        </div>
-        <div className="overflow-hidden rounded bg-white shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
-          <img
-            src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-            className="h-44 w-72 object-cover p-2 shadow-sm"
-            alt=""
-          />
-          <div className="grid border border-t-0 p-5">
-            <p className="hover:text-deep-purple-accent-700 mb-3 inline-block text-2xl font-bold leading-5 transition-colors duration-200">
-              Visit the East
-            </p>
-            <Link
-              to="/"
-              aria-label=""
-              className="text-deep-purple-accent-400 hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
-            >
-              Learn more
-            </Link>
-          </div>
-        </div>
-        <div className="overflow-hidden rounded bg-white  shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
-          <img
-            src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-            className="h-44 w-72 object-cover p-2 shadow-sm"
-            alt=""
-          />
-          <div className="grid border border-t-0 p-5">
-            <p className="hover:text-deep-purple-accent-700 mb-3 inline-block text-2xl font-bold leading-5 transition-colors duration-200">
-              Visit the East
-            </p>
-            <Link
-              to="/"
-              aria-label=""
-              className="text-deep-purple-accent-400 hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
-            >
-              Learn more
-            </Link>
-          </div>
-        </div>
-      </div>
+    <div className="mx-auto grid gap-8 px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:grid-cols-3 lg:px-8 lg:py-20 ">
+      {allCourse.map((course) => (
+        <CourseDetailsUI key={course._id} course={course}></CourseDetailsUI>
+      ))}
     </div>
+    // <section className="my-10 rounded-lg p-4 text-gray-100 shadow-md md:h-72 lg:p-4">
+    //   <div className="container mx-auto space-y-12  ">
+    //     <div className="grid grid-cols-1 rounded-lg shadow-sm md:flex md:flex-col lg:flex-row">
+    //       <img
+    //         src="https://source.unsplash.com/640x480/?1"
+    //         alt=""
+    //         className="bg-gray-500 md:h-64 md:w-[40%]"
+    //       />
+    //       <div className="flex flex-1 flex-col justify-center bg-gray-900 p-6">
+    //         <span className="text-xs uppercase text-gray-400">
+    //           Join, it's free
+    //         </span>
+    //         <h3 className="text-3xl font-bold">
+    //           We're not reinventing the wheel
+    //         </h3>
+    //         <p className="my-6 text-gray-400">
+    //           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+    //           aliquam possimus quas, error esse quos.
+    //         </p>
+    //         <button type="button" className="self-start">
+    //           Action
+    //         </button>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </section>
   );
 };
 
