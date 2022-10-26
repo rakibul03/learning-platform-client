@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
 const CourseDetailsUI = ({ course }) => {
-  const { course_title, image_url, course_description } = course;
-  console.log(course);
+  const { _id, course_title, image_url, course_description } = course;
+  // console.log(course);
   return (
     <div className="  sm:mx-auto sm:max-w-sm lg:max-w-full  ">
       <div className="overflow-hidden rounded bg-white  shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
@@ -27,7 +27,7 @@ const CourseDetailsUI = ({ course }) => {
             )}
           </h4>
           <Link
-            to="/"
+            to={`/course-content/${_id}`}
             aria-label=""
             className="inline-flex items-center font-bold text-gray-900 transition-colors duration-200 hover:text-[#0ea5e9]"
           >

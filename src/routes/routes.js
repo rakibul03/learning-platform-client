@@ -9,6 +9,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import CourseItem from "../Pages/Courses/CourseItem/CourseItem";
 import CourseDetails from "../Pages/Courses/CourseDetails/CourseDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import CourseContentDetails from "../Pages/Courses/CourseDetails/CourseContentDetails";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,14 @@ export const router = createBrowserRouter([
             element: <CourseDetails />,
           },
         ],
+      },
+      {
+        path: "/course-content/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://learning-platform-server-one.vercel.app/course-content/${params.id}`
+          ),
+        element: <CourseContentDetails />,
       },
     ],
   },
