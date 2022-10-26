@@ -3,8 +3,6 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
-  sendEmailVerification,
-  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -34,11 +32,6 @@ const UserContext = ({ children }) => {
     });
   };
 
-  //   Email verification
-  const verifyEmail = () => {
-    return sendEmailVerification(auth.currentUser);
-  };
-
   //  Google sign in
   const signInWithGoogle = () => {
     return signInWithPopup(auth, googleProvider);
@@ -54,11 +47,6 @@ const UserContext = ({ children }) => {
     setLoading(true);
 
     return signInWithEmailAndPassword(auth, email, password);
-  };
-
-  //   Reset Password
-  const resetPassword = (email) => {
-    return sendPasswordResetEmail(auth, email);
   };
 
   //   Get current user
@@ -77,11 +65,9 @@ const UserContext = ({ children }) => {
     loading,
     createUser,
     updateUserProfile,
-    verifyEmail,
     signInWithGoogle,
     logIn,
     logOut,
-    resetPassword,
   };
 
   return (

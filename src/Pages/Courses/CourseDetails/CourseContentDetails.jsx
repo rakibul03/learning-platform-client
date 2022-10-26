@@ -1,6 +1,6 @@
 import React, { createRef } from "react";
 import ReactToPdf from "react-to-pdf";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ref = React.createRef();
 
@@ -11,7 +11,9 @@ const CourseContentDetails = () => {
     format: [12, 12],
   };
   const courseContent = useLoaderData();
+
   const {
+    _id,
     course_title,
     course_description,
     image_url,
@@ -63,6 +65,9 @@ const CourseContentDetails = () => {
             {course_description}
           </p>
         </div>
+        <button className="btn">
+          <Link to={`/checkout/${_id}`}>Checkout</Link>
+        </button>
       </div>
     </>
   );

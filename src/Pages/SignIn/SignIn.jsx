@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 
 const SignIn = () => {
   const { logIn, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   // Sign In
   const handleLogIn = (event) => {
@@ -18,6 +21,7 @@ const SignIn = () => {
         const user = result.user;
         toast.success(`Signin Successful ${user.displayName}`);
         event.target.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
@@ -30,6 +34,7 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
         toast.success(`Signin Successful ${user.displayName}`);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
