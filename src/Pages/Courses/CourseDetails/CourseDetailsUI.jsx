@@ -10,7 +10,7 @@ const CourseDetailsUI = ({ course }) => {
         <div className="m-2 shadow-[0px_0px_6px_2px_rgba(0,0,0,0.3)]">
           <img
             src={image_url}
-            className=" h-40 w-72 object-fill p-2 sm:h-40 sm:w-60 sm:object-contain "
+            className=" h-40 w-80 object-fill p-2 sm:h-40 sm:w-60 sm:object-contain "
             alt=""
           />
         </div>

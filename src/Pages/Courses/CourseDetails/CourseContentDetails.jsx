@@ -23,20 +23,38 @@ const CourseContentDetails = () => {
 
   return (
     <>
-      <ReactToPdf
-        targetRef={ref}
-        filename="course_details.pdf"
-        options={options}
-        x={0.5}
-        y={0.5}
-        scale={0.8}
-      >
-        {({ toPdf }) => <button onClick={toPdf}>Generate pdf</button>}
-      </ReactToPdf>
       <div
         ref={ref}
         className="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
       >
+        <div className="mb-10 grid max-w-xl justify-between space-y-8 sm:flex sm:space-y-0 sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
+          <div>
+            <ReactToPdf
+              targetRef={ref}
+              filename="course_details.pdf"
+              options={options}
+              x={0.5}
+              y={0.5}
+              scale={0.8}
+            >
+              {({ toPdf }) => (
+                <button onClick={toPdf}>
+                  <Link className="rounded bg-violet-400 px-8 py-3 font-semibold text-gray-900">
+                    Generate pdf
+                  </Link>
+                </button>
+              )}
+            </ReactToPdf>
+          </div>
+          <div>
+            <Link
+              to="/course-item"
+              className="rounded bg-violet-400 px-8 py-3 font-semibold text-gray-900"
+            >
+              Back to Coursepage
+            </Link>
+          </div>
+        </div>
         <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
           <h2 className="mb-6 max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
             {course_title}
@@ -64,9 +82,14 @@ const CourseContentDetails = () => {
             {course_description}
           </p>
         </div>
-        <button className="btn">
-          <Link to={`/checkout/${_id}`}>Checkout</Link>
-        </button>
+        <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
+          <Link
+            className="rounded bg-violet-400 px-8 py-3 font-semibold text-gray-900"
+            to={`/checkout/${_id}`}
+          >
+            Get Premium Access
+          </Link>
+        </div>
       </div>
     </>
   );

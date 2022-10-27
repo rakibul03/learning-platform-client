@@ -161,7 +161,7 @@ const Navbar = () => {
               <li className="pr-4">
                 <label
                   htmlFor="Toggle1"
-                  className="inline-flex cursor-pointer items-center space-x-[4px] text-gray-100"
+                  className="inline-flex cursor-pointer items-center space-x-[4px] text-gray-100 "
                 >
                   <p className="mb-[2px]">
                     {isDark ? (
