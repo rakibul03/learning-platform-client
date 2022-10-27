@@ -163,7 +163,7 @@ const Navbar = () => {
                   htmlFor="Toggle1"
                   className="inline-flex cursor-pointer items-center space-x-[4px] text-gray-100"
                 >
-                  <p className="mb-[4px]">
+                  <p className="mb-[2px]">
                     {isDark ? (
                       <span className="text-sm">Dark</span>
                     ) : (
