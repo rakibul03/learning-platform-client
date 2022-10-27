@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaArrowRight, FaDollarSign } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const CourseDetailsUI = ({ course }) => {
+const AllCourseUI = ({ course }) => {
   const { _id, course_title, image_url, course_description, price } = course;
   return (
-    <div className="  sm:mx-auto sm:max-w-sm lg:max-w-full  ">
+    <div className="sm:mx-auto sm:max-w-sm lg:max-w-full">
       <div className="overflow-hidden rounded bg-white  shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] transition-shadow duration-300">
         <div className="m-2 shadow-[0px_0px_6px_2px_rgba(0,0,0,0.3)]">
           <img
@@ -46,4 +46,4 @@ const CourseDetailsUI = ({ course }) => {
   );
 };
 
-export default CourseDetailsUI;
+export default AllCourseUI;

@@ -1,6 +1,7 @@
 import React, { createRef } from "react";
 import ReactToPdf from "react-to-pdf";
 import { Link, useLoaderData } from "react-router-dom";
+import { FaDownload } from "react-icons/fa";
 
 const ref = createRef();
 
@@ -27,7 +28,7 @@ const CourseContentDetails = () => {
         ref={ref}
         className="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
       >
-        <div className="mb-10 grid max-w-xl justify-between space-y-8 sm:flex sm:space-y-0 sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
+        <div className="mb-10 grid max-w-xl justify-center space-y-8 sm:flex sm:space-y-0 sm:text-center md:mx-auto md:mb-12 md:justify-between lg:max-w-2xl">
           <div>
             <ReactToPdf
               targetRef={ref}
@@ -39,8 +40,11 @@ const CourseContentDetails = () => {
             >
               {({ toPdf }) => (
                 <button onClick={toPdf}>
-                  <Link className="rounded bg-violet-400 px-8 py-3 font-semibold text-gray-900">
-                    Generate pdf
+                  <Link className="flex rounded bg-violet-400 px-11 py-3 font-semibold text-gray-900">
+                    <span>Generate pdf</span>
+                    <span>
+                      <FaDownload className="m-[4px] pl-[1px]" />
+                    </span>
                   </Link>
                 </button>
               )}
@@ -56,10 +60,10 @@ const CourseContentDetails = () => {
           </div>
         </div>
         <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
-          <h2 className="mb-6 max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="mb-6 max-w-lg text-center font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
             {course_title}
           </h2>
-          <h4 className="mx-auto grid justify-between space-y-1 px-12 md:flex md:px-20 ">
+          <h4 className="mx-auto grid justify-center space-y-1 px-12 md:flex md:justify-between md:px-20 ">
             <p className="text-base text-gray-700 md:text-lg ">
               Created by: {author.name}
             </p>
@@ -77,18 +81,18 @@ const CourseContentDetails = () => {
             />
           </div>
         </div>
-        <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
-          <p className="pt-8 text-base text-gray-700 sm:pt-10 md:text-lg">
-            {course_description}
-          </p>
-        </div>
-        <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
+        <div className="mx-auto mt-12 max-w-xl text-center  lg:max-w-2xl">
           <Link
             className="rounded bg-violet-400 px-8 py-3 font-semibold text-gray-900"
             to={`/checkout/${_id}`}
           >
             Get Premium Access
           </Link>
+        </div>
+        <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
+          <p className="pt-8 text-base text-gray-700 sm:pt-10 md:text-lg">
+            {course_description}
+          </p>
         </div>
       </div>
     </>
