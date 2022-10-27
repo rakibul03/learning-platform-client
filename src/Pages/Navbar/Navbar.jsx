@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/UserContext";
 import avatarImg from "../../assets/avatar.jpg";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
