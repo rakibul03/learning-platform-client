@@ -7,18 +7,20 @@ const CheckOut = () => {
   const { course_title, image_url, author, price } = checkoutItem;
 
   return (
-    <div className="mx-auto mt-14 flex max-w-3xl flex-col space-y-4 rounded-md bg-gray-900 p-6 text-gray-100 sm:p-10">
+    <div className="mx-auto mt-14 max-w-3xl flex-col space-y-4 rounded-md bg-gray-900 p-5 text-gray-100 sm:p-10 md:flex">
       <h2 className="text-xl font-semibold">Your cart</h2>
-      <ul className="flex flex-col divide-y divide-gray-700">
-        <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
-          <div className="flex w-full space-x-2 sm:space-x-4">
-            <img
-              className="h-20 w-20 flex-shrink-0 rounded border-transparent bg-gray-500 object-cover outline-none sm:h-32 sm:w-32"
-              src={image_url}
-              alt="Set of travel chargers"
-            />
-            <div className="flex w-full flex-col justify-between pb-4">
-              <div className="flex w-full justify-between space-x-2 pb-2">
+      <ul className=" flex flex-col divide-y divide-gray-700">
+        <li className="flex-col py-6 sm:flex-row sm:justify-between md:flex">
+          <div className="grid w-full space-x-2 sm:flex sm:space-x-4">
+            <div>
+              <img
+                className="flex-shrink-0 rounded border-transparent bg-gray-500 object-cover outline-none sm:h-32 sm:w-32"
+                src={image_url}
+                alt="Set of travel chargers"
+              />
+            </div>
+            <div className="flex w-full flex-col justify-between pb-4 pr-2 pt-2">
+              <div className="flex w-full justify-between  pb-2">
                 <div className="space-y-1">
                   <h3 className="text-lg font-semibold leading-snug sm:pr-8">
                     {course_title}
@@ -29,7 +31,7 @@ const CheckOut = () => {
                   <p className="text-lg font-semibold">Price: {price} $</p>
                 </div>
               </div>
-              <div className="flex divide-x text-sm">
+              <div className="flex justify-between divide-x text-sm sm:justify-start">
                 <button
                   type="button"
                   className="flex items-center space-x-1 px-2 py-1 pl-0"
@@ -78,7 +80,7 @@ const CheckOut = () => {
           type="button"
           className="rounded-md border border-violet-400 px-6 py-2"
         >
-          <span className="sr-only sm:not-sr-only">
+          <span>
             <Link to="/course-item">Back to Courses</Link>
           </span>
         </button>
@@ -86,10 +88,7 @@ const CheckOut = () => {
           type="button"
           className="rounded-md border border-violet-400 bg-violet-400 px-6 py-2 text-gray-900"
         >
-          <span
-            onClick={() => toast.success("Congratulation")}
-            className="sr-only sm:not-sr-only"
-          >
+          <span onClick={() => toast.success("Congratulation")}>
             Continue to Checkout
           </span>
         </button>

@@ -249,7 +249,7 @@ const Navbar = () => {
                     <ul className="space-y-4">
                       <li>
                         <NavLink
-                          to="/course-item"
+                          to="/home"
                           className={({ isActive }) =>
                             isActive
                               ? "font-medium text-[#0ea5e9]"
@@ -261,7 +261,7 @@ const Navbar = () => {
                       </li>
                       <li>
                         <NavLink
-                          to="/home"
+                          to="/course-item"
                           className={({ isActive }) =>
                             isActive
                               ? "font-medium text-[#0ea5e9]"
