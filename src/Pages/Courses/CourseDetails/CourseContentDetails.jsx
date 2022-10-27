@@ -81,6 +81,12 @@ const CourseContentDetails = () => {
             />
           </div>
         </div>
+
+        <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
+          <p className="pt-8 text-base text-gray-700 sm:pt-10 md:text-lg">
+            {course_description}
+          </p>
+        </div>
         <div className="mx-auto mt-12 max-w-xl text-center  lg:max-w-2xl">
           <Link
             className="rounded bg-violet-400 px-8 py-3 font-semibold text-gray-900"
@@ -88,11 +94,6 @@ const CourseContentDetails = () => {
           >
             Get Premium Access
           </Link>
-        </div>
-        <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
-          <p className="pt-8 text-base text-gray-700 sm:pt-10 md:text-lg">
-            {course_description}
-          </p>
         </div>
       </div>
     </>
