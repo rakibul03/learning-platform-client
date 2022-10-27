@@ -11,7 +11,7 @@ const CourseCategoryBar = () => {
   }, []);
 
   return (
-    <div className=" mx-auto mt-10 h-[408px] w-72 rounded-lg bg-gray-500 px-5 pt-5 text-gray-100 shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] sm:sticky sm:top-24 sm:mx-0 sm:mt-0">
+    <div className=" mx-auto mt-10 h-[408px] w-72 rounded-lg bg-gray-500 px-5 pt-5 text-gray-100 shadow-[-1px_0px_10px_2px_rgba(0,0,0,0.5)] sm:sticky sm:top-28 sm:mx-0 sm:mt-0">
       {courseCategories.map((courseCategory) => (
         <CourseCategoryPanel
           key={courseCategory.id}

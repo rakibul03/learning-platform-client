@@ -27,7 +27,7 @@ const Navbar = () => {
                 title="Our courses"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium text-[#0ea5e9]"
+                    ? "font-medium text-[#a78bfa]"
                     : "font-medium text-gray-100"
                 }
               >
@@ -41,7 +41,7 @@ const Navbar = () => {
                 title="Our courses"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium text-[#0ea5e9]"
+                    ? "font-medium text-[#a78bfa]"
                     : "font-medium text-gray-100"
                 }
               >
@@ -55,7 +55,7 @@ const Navbar = () => {
                 title="faq"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium text-[#0ea5e9]"
+                    ? "font-medium text-[#a78bfa]"
                     : "font-medium text-gray-100"
                 }
               >
@@ -69,7 +69,7 @@ const Navbar = () => {
                 title="blog"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium text-[#0ea5e9]"
+                    ? "font-medium text-[#a78bfa]"
                     : "font-medium text-gray-100"
                 }
               >
@@ -244,7 +244,7 @@ const Navbar = () => {
                           to="/home"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-medium text-[#0ea5e9]"
+                              ? "font-medium text-[#a78bfa]"
                               : "hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
                           }
                         >
@@ -256,7 +256,7 @@ const Navbar = () => {
                           to="/course-item"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-medium text-[#0ea5e9]"
+                              ? "font-medium text-[#a78bfa]"
                               : "hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
                           }
                         >
@@ -268,7 +268,7 @@ const Navbar = () => {
                           to="/faq"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-medium text-[#0ea5e9]"
+                              ? "font-medium text-[#a78bfa]"
                               : "hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
                           }
                         >
@@ -280,7 +280,7 @@ const Navbar = () => {
                           to="/blog"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-medium text-[#0ea5e9]"
+                              ? "font-medium text-[#a78bfa]"
                               : "hover:text-deep-purple-accent-400 font-medium tracking-wide text-gray-700 transition-colors duration-200"
                           }
                         >

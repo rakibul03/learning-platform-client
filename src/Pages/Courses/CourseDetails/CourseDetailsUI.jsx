@@ -30,7 +30,7 @@ const CourseDetailsUI = ({ course }) => {
               <Link
                 to={`/course-content/${_id}`}
                 aria-label=""
-                className="inline-flex items-center font-bold text-gray-900 transition-colors duration-200 hover:text-[#0ea5e9]"
+                className="inline-flex items-center font-bold text-gray-900 transition-colors duration-200 hover:text-[#a78bfa]"
               >
                 Course Details <FaArrowRight className="pt-1 pl-1" />
               </Link>
