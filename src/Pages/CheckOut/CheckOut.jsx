@@ -14,7 +14,7 @@ const CheckOut = () => {
           <div className="grid w-full space-x-2 sm:flex sm:space-x-4">
             <div>
               <img
-                className="h-48 w-96 flex-shrink-0 rounded border-transparent bg-gray-500  object-cover outline-none sm:h-32 sm:w-32"
+                className="h-48 w-96 flex-shrink-0 rounded border-transparent bg-gray-500  object-cover outline-none sm:h-32 sm:w-44"
                 src={image_url}
                 alt="Set of travel chargers"
               />

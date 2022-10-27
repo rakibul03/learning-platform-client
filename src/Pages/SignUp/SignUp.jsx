@@ -31,7 +31,7 @@ const SignUp = () => {
             toast.error(error.message);
           });
         event.target.reset();
-        navigate("/signin");
+        navigate("/");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -43,7 +43,7 @@ const SignUp = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        navigate("/signin");
+        navigate(from, { replace: true });
         toast.success(`SignUp Successful ${user.displayName}`);
       })
       .catch((error) => {
@@ -57,6 +57,7 @@ const SignUp = () => {
     signInWithGithu()
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         toast.success(`SignUp Successful ${user.displayName}`);
       })
       .catch((error) => {

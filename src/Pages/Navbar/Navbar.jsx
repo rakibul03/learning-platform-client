@@ -295,7 +295,7 @@ const Navbar = () => {
                           Blog
                         </NavLink>
                       </li>
-                      {user?.email ? (
+                      {user?.uid ? (
                         <div className="flex items-center justify-center gap-6">
                           <img
                             alt=""
@@ -318,7 +318,7 @@ const Navbar = () => {
                           <li>
                             <Link
                               to="/signin"
-                              className="btn btn-color hover:btn-color bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-black shadow-md transition duration-200 focus:outline-none"
+                              className="btn btn-color hover:btn-color  focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-white shadow-md transition duration-200 focus:outline-none"
                             >
                               Sign in
                             </Link>
@@ -326,7 +326,7 @@ const Navbar = () => {
                           <li>
                             <Link
                               to="/signup"
-                              className="btn btn-color hover:btn-color bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-black shadow-md transition duration-200 focus:outline-none"
+                              className="btn btn-color hover:btn-color  focus:shadow-outline inline-flex h-12 w-full items-center justify-center rounded px-6 font-medium tracking-wide text-white shadow-md transition duration-200 focus:outline-none"
                             >
                               Sign up
                             </Link>

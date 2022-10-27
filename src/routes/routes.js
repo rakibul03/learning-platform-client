@@ -12,6 +12,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import CourseContentDetails from "../Pages/Courses/CourseDetails/CourseContentDetails";
 import CheckOut from "../Pages/CheckOut/CheckOut";
 import PrivateRoutes from "./PrivateRoutes";
+import AllCourses from "../Pages/Courses/AllCourses/AllCourses";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
         path: "/course-item",
         element: <CourseItem />,
         children: [
+          {
+            path: "/course-item",
+            element: <AllCourses />,
+          },
           {
             path: "/course-item/course-details/:id",
             loader: ({ params }) =>
